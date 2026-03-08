@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Purpose Built</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .about-hero {
+      padding-top: calc(58px + 5rem);
+      padding-bottom: 5rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 5rem;
+      align-items: start;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .profile-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(20%);
+      outline: 1px solid var(--rule);
+    }
+
+    .about-hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .full-story p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--ink-2);
+      font-weight: 300;
+      max-width: 60ch;
+      margin-bottom: 1.5rem;
+    }
+
+    .full-story p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 900px) {
+      .about-hero {
+        grid-template-columns: 1fr;
+        padding: 120px 1.5rem 3rem;
+        gap: 2.5rem;
+      }
+
+      .profile-img {
+        max-width: 220px;
+        order: -1;
+      }
+    }
+    @media (max-width: 600px) {
+      #contact-modal {
+        align-items: flex-end !important;
+        padding: 0 !important;
+        overflow-y: auto !important;
+      }
+      #contact-modal > div {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      #contact-modal > div > button {
+        right: 1.5rem !important;
+      }
+      .contact-modal-grid {
+        grid-template-columns: 1fr !important;
+        border-left: none !important;
+        border-right: none !important;
+        border-bottom: none !important;
+      }
+      .contact-modal-grid > div:first-child {
+        border-right: none !important;
+        border-bottom: 1px solid var(--rule);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand nav-brand--back"><span class="nav-prompt">❮</span> RETURN HOME</a>
+    <ul class="nav-links">
+      <li><a href="press.html">Press</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── ABOUT HERO ─────────────────────────────────────────── -->
+  <div class="about-hero">
+    <div class="about-hero-content">
+      <div class="bio-name" style="font-size: 3rem;">Hi, I'm Morrie.</div>
+      <p class="bio-text" style="font-size: 0.9375rem; max-width: 52ch; margin-bottom: 0;">
+        I've spent my career helping some of America's biggest companies launch startups, build new service offerings, and transform the internal tools powering their businesses.
+      </p>
+      <p class="bio-text" style="font-size: 0.9375rem; max-width: 52ch; margin-bottom: 0;">
+        Through these experiences, I developed a passion for applying the strategic methods pioneered by UX practitioners and industrial designers to understand what customers actually need — before a single line of code is written. It's an approach that dramatically de-risks new features and new ventures alike — but you can also never count out a global pandemic or emerging technology to shake things up (hello AI).
+      </p>
+      <p class="bio-text" style="font-size: 0.9375rem; max-width: 52ch; margin-bottom: 0;">
+        These days, I'm focused on taking those same lessons from the consulting world and applying them where they have the most impact — helping founders and teams navigate inflection points with clarity and confidence.
+      </p>
+      <p class="bio-text" style="font-size: 0.9375rem; max-width: 52ch; margin-bottom: 0;">
+        If that's where you are, I'd love to talk.
+      </p>
+      <a href="contact.html" class="btn-primary" style="margin-top: 1.5rem; align-self: flex-start;">Let's Talk</a>
+    </div>
+    <img src="media/morrie.jpg" alt="Morrie Nimmer" class="profile-img">
+  </div>
+
+  <!-- ── THE FULL STORY ─────────────────────────────────────── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="label" style="padding-top: 0.3rem;">The Full Story</span>
+      <div class="full-story">
+        <p>
+          My first experience with a computer was using a command line to launch DOS games from floppy disks. That early tinkering lit something in me — a curiosity about technology that never really went away. In high school I started writing code to customize MySpace and teaching myself Photoshop, learning mostly by breaking things and figuring out why. At Seattle Pacific University I found my people in the Visual Communication Design program, where I got a rigorous grounding in classic design fundamentals (bauhaus anyone?) and learned from professors who took the craft seriously — a foundation that still shapes how I think about problems today.
+        </p>
+        <p>
+          My professional career began in Seattle's technology scene at the height of the smartphone boom — when iOS and Android apps were the hot commodity. Working at an agency, I got to collaborate with talented engineers and product minds who taught me how to move fast without cutting corners — and what it really takes to ship something people actually use.
+        </p>
+        <p>
+          That led me to BCG Digital Ventures, BCG's corporate venture studio, where I spent seven years alongside some of the sharpest builders, strategists, and operators I've ever met. We helped Fortune 50 companies launch new digital businesses from scratch in every industry — retail, mobility, financial services, networking to name a few. The work took me around the country from the Los Angeles startup scene to WeWorks on Wall Street. Every environment came with its own rules, its own culture, and people who were genuinely world-class at what they did. I learned something different in each one.
+        </p>
+        <p>
+          Today I work independently through Purpose Built, partnering with founders and product teams who need a clear-eyed outside perspective. I'm based in Eugene, Oregon, though Seattle still pulls me back regularly.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OTHER INTERESTS ──────────────────────────────────── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="label" style="padding-top: 0.3rem;">Other Interests</span>
+      <div class="full-story">
+        <p>
+          Outside of work, you'll find me exploring Eugene with my family — finding the hidden gems of a city that keeps surprising me. A big part of that is getting my two kids outside as much as possible: parks, trails, anywhere with room to run. And when I can steal some alone time — I'm in the garage wrenching on my collection of vintage Vespas — restoring them, tinkering with them, and occasionally actually riding one.
+        </p>
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-top: 2rem; align-items: start;">
+          <figure style="margin: 0; display: flex; flex-direction: column;">
+            <img src="media/vespa.jpg" alt="Morrie with a vintage Vespa" style="width: 100%; height: 420px; object-fit: cover; object-position: center; outline: 1px solid var(--rule);">
+            <figcaption style="font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.08em; color: var(--ink-3); margin-top: 0.625rem;">Seattle, WA — Getting hooked on design and vintage scooters.</figcaption>
+          </figure>
+          <figure style="margin: 0; display: flex; flex-direction: column;">
+            <img src="media/hiking.jpg" alt="Morrie hiking with his daughter" style="width: 100%; height: 420px; object-fit: cover; object-position: left bottom; outline: 1px solid var(--rule);">
+            <figcaption style="font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.08em; color: var(--ink-3); margin-top: 0.625rem;">Mandatory outdoor time — sometimes they tolerate it.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer>
+    <span class="footer-brand">MORRIE NIMMER</span>
+    <div class="footer-meta">
+      <span>&copy; 2026 Purpose Built</span>
+      <span>Eugene, OR / Remote</span>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+  <!-- ── CONTACT MODAL ────────────────────────────────────── -->
+  <div id="contact-modal" style="display:none; position:fixed; inset:0; background:rgba(18,15,9,0.75); z-index:1000; align-items:center; justify-content:center; padding:1.5rem;">
+    <div style="position:relative; width:100%; max-width:780px;"><button onclick="closeContactModal()" style="position:absolute; top:-2.5rem; right:0; background:none; border:none; color:#fff; font-family:var(--mono); font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer;">✕ Close</button><div class="contact-modal-grid" style="background:var(--paper); display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--rule);">
+      <div style="padding:2.5rem 2rem; border-right:1px solid var(--rule); display:flex; flex-direction:column; gap:1rem;">
+        <span style="font-family:var(--mono); font-size:0.6875rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent);">01</span>
+        <h2 style="font-size:1.375rem; font-weight:300; line-height:1.2;">Find me on <strong>LinkedIn.</strong></h2>
+        <div>
+          <p style="font-size:0.9rem; font-weight:300; color:var(--ink-2); line-height:1.7;">Connect or send a message directly — it's the fastest way to reach me.</p>
+          <a href="https://www.linkedin.com/in/morrienimmer/" target="_blank" class="btn-primary" style="display:inline-block; margin-top:1.25rem;">View Profile &nbsp;↗</a>
+        </div>
+      </div>
+      <div style="padding:2.5rem 2rem; display:flex; flex-direction:column; gap:1rem;">
+        <span style="font-family:var(--mono); font-size:0.6875rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent);">02</span>
+        <h2 style="font-size:1.375rem; font-weight:300; line-height:1.2;">Send a <strong>message.</strong></h2>
+        <form style="display:flex; flex-direction:column; gap:1rem;" action="https://formspree.io/f/mkoqgwvk" method="POST">
+          <div style="display:flex; flex-direction:column; gap:0.3rem;">
+            <label style="font-family:var(--mono); font-size:0.625rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3);" for="m-name-a">Name</label>
+            <input style="background:var(--paper-hi); border:1px solid var(--rule); padding:0.625rem 0.875rem; font-family:var(--sans); font-size:0.9rem; font-weight:300; color:var(--ink); outline:none; width:100%;" type="text" id="m-name-a" name="name" required>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:0.3rem;">
+            <label style="font-family:var(--mono); font-size:0.625rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3);" for="m-email-a">Email</label>
+            <input style="background:var(--paper-hi); border:1px solid var(--rule); padding:0.625rem 0.875rem; font-family:var(--sans); font-size:0.9rem; font-weight:300; color:var(--ink); outline:none; width:100%;" type="email" id="m-email-a" name="email" required>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:0.3rem;">
+            <label style="font-family:var(--mono); font-size:0.625rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3);" for="m-message-a">Message</label>
+            <textarea style="background:var(--paper-hi); border:1px solid var(--rule); padding:0.625rem 0.875rem; font-family:var(--sans); font-size:0.9rem; font-weight:300; color:var(--ink); outline:none; width:100%; resize:none; min-height:100px; line-height:1.6;" id="m-message-a" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="align-self:flex-start;">Send Message</button>
+        </form>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <script>
+    function openContactModal() {
+      document.getElementById('contact-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+      document.getElementById('contact-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeContactModal();
+    });
+  </script>

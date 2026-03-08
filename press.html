@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Press — Purpose Built</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .press-hero {
+      padding-top: calc(58px + 5rem);
+      padding-bottom: 5rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .press-hero-label {
+      font-family: var(--mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .press-hero-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      max-width: 18ch;
+      margin-bottom: 1.5rem;
+    }
+
+    .press-hero-title strong { font-weight: 700; }
+
+    .press-hero-body {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--ink-2);
+      max-width: 52ch;
+      line-height: 1.75;
+    }
+
+    /* ── Article grid ───────────────────────────────────────── */
+    .press-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-left: 1px solid var(--rule);
+    }
+
+    .press-card {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+    }
+
+    .press-card:hover { background: var(--ink-5, #f5f3ef); }
+
+    .press-card-pub {
+      font-family: var(--mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .press-card-headline {
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+
+    .press-card-excerpt {
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--ink-2);
+      flex: 1;
+    }
+
+    .press-card-meta {
+      font-family: var(--mono);
+      font-size: 0.625rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+      line-height: 1;
+    }
+
+    .press-card-arrow {
+      font-size: 0.875rem;
+      color: var(--accent);
+    }
+
+    .press-card-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .press-card-arrow::before {
+      font-family: var(--mono);
+      font-size: 0.5625rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    a.press-card .press-card-arrow::before { content: 'Article'; }
+    div.press-card .press-card-arrow::before { content: 'Video'; }
+
+    a.press-card .press-card-arrow {
+      font-size: 0;
+      gap: 0;
+    }
+
+    a.press-card .press-card-arrow::after {
+      margin-left: 8px;
+      content: '';
+      display: inline-block;
+      width: 13px;
+      height: 13px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='%23C4681A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'/%3E%3Cpath d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    @media (max-width: 900px) {
+      .press-hero {
+        padding: 120px 1.5rem 3rem;
+      }
+
+      .press-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (min-width: 901px) and (max-width: 1100px) {
+      .press-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand nav-brand--back"><span class="nav-prompt">❮</span> RETURN HOME</a>
+    <ul class="nav-links">
+      <li><a href="press.html" class="active">Press</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <div class="press-hero">
+    <div class="press-hero-label">Press</div>
+    <h1 class="press-hero-title">Work worth <strong>reading about.</strong></h1>
+    <p class="press-hero-body">
+      A selection of coverage from projects where I've been an integral part of the team — from zero-to-one venture builds to product launches that made the news.
+    </p>
+  </div>
+
+  <!-- ── ARTICLE GRID ──────────────────────────────────────── -->
+  <section style="padding: 0 3rem; border-bottom: 1px solid var(--rule);">
+    <div class="press-grid">
+
+      <a href="https://nextgendefense.com/defense-disruptors-ethos/" class="press-card" target="_blank">
+        <div class="press-card-pub">Next Gen Defense</div>
+        <div class="press-card-headline">Defense Disruptors: How Ethos is Building the Military's First 'Human Readiness Platform'</div>
+        <div class="press-card-excerpt">Ethos has developed an AI-powered platform that continuously tracks military personnel's knowledge gaps and delivers personalized training to close them — addressing dangerously outdated training timelines.</div>
+        <div class="press-card-meta">
+          <span>Oct 2025</span>
+          <span class="press-card-arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="https://www.federaltimes.com/it-networks/ai/2024/05/03/danti-search-engine-answers-space-force-location-questions-with-images/" class="press-card" target="_blank">
+        <div class="press-card-pub">Federal Times</div>
+        <div class="press-card-headline">Danti Search Engine Answers Space Force Location Questions with Images</div>
+        <div class="press-card-excerpt">Danti's AI-powered Earth data search engine secured $5M in seed funding to help military and government agencies rapidly access satellite imagery and geospatial intelligence to answer location-based questions.</div>
+        <div class="press-card-meta">
+          <span>May 2024</span>
+          <span class="press-card-arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="https://www.bcg.com/publications/2024/overcoming-retail-complexity-with-ai-powered-pricing" class="press-card" target="_blank">
+        <div class="press-card-pub">BCG</div>
+        <div class="press-card-headline">Overcoming Retail Complexity with AI-Powered Pricing</div>
+        <div class="press-card-excerpt">Persistent inflation, supply chain volatility, and intensifying price competition have created complexity beyond what traditional tools can handle — retailers are turning to AI-powered pricing to stay ahead.</div>
+        <div class="press-card-meta">
+          <span>Apr 2024</span>
+          <span class="press-card-arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="https://www.forbes.com/sites/christopherelliott/2021/05/27/this-startup-company-has-a-fix-for-the-car-rental-shortage/" class="press-card" target="_blank">
+        <div class="press-card-pub">Forbes</div>
+        <div class="press-card-headline">This Startup Company Has a Fix for the Car Rental Shortage</div>
+        <div class="press-card-excerpt">Avail Car Sharing, which launched in late 2018 and expanded during the pandemic, is selling a car-rental type experience without the risk typically involved in car sharing.</div>
+        <div class="press-card-meta">
+          <span>May 2021</span>
+          <span class="press-card-arrow">↗</span>
+        </div>
+      </a>
+
+      <div class="press-card" style="cursor:pointer;" onclick="openVideoModal('media/Catalyst_Cloud.mp4')">
+        <div class="press-card-pub">BCG</div>
+        <div class="press-card-headline">BCG launches Catalyst Cloud, a no-code data platform enabling BCG's advanced-analytics experts</div>
+        <div class="press-card-excerpt">Catalyst Cloud offers built-in services to enable data management, modeling, analysis, and visualization — extract insights, predict business outcomes, and accelerate decision-making.</div>
+        <div class="press-card-meta">
+          <span>Oct 2022</span>
+          <span class="press-card-arrow">▶</span>
+        </div>
+      </div>
+
+      <div class="press-card" style="cursor:pointer;" onclick="openVideoModal('media/Retail_AI.mp4')">
+        <div class="press-card-pub">BCG</div>
+        <div class="press-card-headline">Advanced Analytics Behind Fashion Company Markdowns</div>
+        <div class="press-card-excerpt">How big data, pricing algorithms, and machine learning help retailers make stronger markdown decisions — BCG's experience across 20+ projects found the approach can boost gross margins by 10% to 20%.</div>
+        <div class="press-card-meta">
+          <span>Mar 2020</span>
+          <span class="press-card-arrow">▶</span>
+        </div>
+      </div>
+
+      <div class="press-card" style="cursor:pointer;" onclick="openVideoModal('media/bcg-cisco-fixed.mp4')">
+        <div class="press-card-pub">BCG</div>
+        <div class="press-card-headline">Stamping Out Counterfeit Goods with Blockchain and IoT</div>
+        <div class="press-card-excerpt">Businesses finally have the authentication and tracking capabilities needed to fight counterfeiting — pairing IoT smart tags with a tamper-proof blockchain chain of custody to protect customers and recover lost revenue.</div>
+        <div class="press-card-meta">
+          <span>May 2019</span>
+          <span class="press-card-arrow">▶</span>
+        </div>
+      </div>
+
+      <a href="https://www.prnewswire.com/news-releases/oshi-health-launches-first-all-in-one-mobile-app-to-empower-patients-with-inflammatory-bowel-disease-ibd-including-crohns-disease-and-ulcerative-colitis-300656062.html" class="press-card" target="_blank">
+        <div class="press-card-pub">PR Newswire</div>
+        <div class="press-card-headline">Oshi Health Launches First All-in-One Mobile App to Empower Patients with Inflammatory Bowel Disease</div>
+        <div class="press-card-excerpt">Oshi is the first app to combine IBD symptom tracking, curated news, and real-life success stories — empowering patients with Crohn's disease and ulcerative colitis to take control of their care.</div>
+        <div class="press-card-meta">
+          <span>Jun 2018</span>
+          <span class="press-card-arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="https://www.fintechfutures.com/fintech-innovation/wells-fargo-unveils-greenhouse-effect-with-money-management-app" class="press-card" target="_blank">
+        <div class="press-card-pub">FinTech Futures</div>
+        <div class="press-card-headline">Wells Fargo unveils Greenhouse effect with money management app</div>
+        <div class="press-card-excerpt">Wells Fargo's standalone mobile banking app combines personal finance management tools with AI-driven insights — targeting younger consumers with a fresh approach to budgeting and cash flow.</div>
+        <div class="press-card-meta">
+          <span>Nov 2017</span>
+          <span class="press-card-arrow">↗</span>
+        </div>
+      </a>
+
+      <a href="https://www.prnewswire.com/news-releases/new-app-empowers-diy-enthusiasts-to-tackle-home-improvement-projects-300341346.html" class="press-card" target="_blank">
+        <div class="press-card-pub">PR Newswire</div>
+        <div class="press-card-headline">New App Empowers DIY Enthusiasts to Tackle Home Improvement Projects</div>
+        <div class="press-card-excerpt">DIYZ launched as the first DIY app to combine step-by-step video tutorials, curated tool purchasing, and on-demand video chat with expert contractors — all from your smartphone.</div>
+        <div class="press-card-meta">
+          <span>Oct 2016</span>
+          <span class="press-card-arrow">↗</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── VIDEO MODAL ──────────────────────────────────────── -->
+  <div id="video-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; align-items:center; justify-content:center;">
+    <div style="position:relative; width:90%; max-width:900px;">
+      <button onclick="closeVideoModal()" style="position:absolute; top:-2.5rem; right:0; background:none; border:none; color:#fff; font-family:var(--mono); font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer;">✕ Close</button>
+      <video id="modal-video" controls style="width:100%; display:block; outline:1px solid rgba(255,255,255,0.15);"></video>
+    </div>
+  </div>
+
+  <script>
+    function openVideoModal(src) {
+      const modal = document.getElementById('video-modal');
+      const v = document.getElementById('modal-video');
+      v.src = src;
+      modal.style.display = 'flex';
+      v.play();
+    }
+    function closeVideoModal() {
+      const modal = document.getElementById('video-modal');
+      modal.style.display = 'none';
+      const v = document.getElementById('modal-video');
+      v.pause();
+      v.src = '';
+    }
+    document.getElementById('video-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeVideoModal();
+    });
+  </script>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer>
+    <span class="footer-brand">MORRIE NIMMER</span>
+    <div class="footer-meta">
+      <span>&copy; 2026 Purpose Built</span>
+      <span>Eugene, OR / Remote</span>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Purpose Built — Design Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @media (max-width: 600px) {
+      #contact-modal {
+        align-items: flex-end !important;
+        padding: 0 !important;
+        overflow-y: auto !important;
+      }
+      #contact-modal > div {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      #contact-modal > div > button {
+        right: 1.5rem !important;
+      }
+      .contact-modal-grid {
+        grid-template-columns: 1fr !important;
+        border-left: none !important;
+        border-right: none !important;
+        border-bottom: none !important;
+      }
+      .contact-modal-grid > div:first-child {
+        border-right: none !important;
+        border-bottom: 1px solid var(--rule);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ──────────────────────────────────────────────── -->
+  <nav>
+    <a href="index.html" class="nav-brand"><span class="nav-prompt">❯</span> MORRIE NIMMER</a>
+    <ul class="nav-links">
+      <li><a href="press.html">Press</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">The Product Portfolio of Morrie Nimmer</p>
+      <h1 class="hero-title">
+        <span class="prompt">❯</span>&nbsp; I help businesses understand their customers &mdash; <strong>and build</strong><span class="cursor"></span>
+      </h1>
+      <p class="hero-body">
+        There is no replacement for direct customer research and rigorous
+        concept validation. <strong>Process followed, success guaranteed.</strong>
+      </p>
+      <div class="hero-actions">
+        <a href="#" class="btn-primary" onclick="openContactModal();return false;">Let's Talk</a>
+      </div>
+    </div>
+
+    <div class="hero-aside">
+
+      <!-- Bio card -->
+      <div class="info-card">
+        <div class="info-card-header">
+          <span class="label">About</span>
+          <span class="info-counter bio-available"><span class="status-dot"></span>&nbsp;Available</span>
+        </div>
+        <div class="bio-name">Morrie Nimmer</div>
+        <p class="bio-text">
+          Product Manager with startup and Big 4 consulting experience,
+          specializing in turning customer insight into clear product
+          direction. Methodology rooted in research and evaluation methods
+          pioneered by UX practitioners and industrial designers — not
+          assumptions. My sweet spot is working directly with customers to
+          define what's needed, then translating that into a product strategy
+          that teams can execute against.
+        </p>
+        <div class="bio-stats">
+          <div>
+            <span class="stat-num">7</span>
+            <span class="stat-label">Years Big 4</span>
+          </div>
+          <div>
+            <span class="stat-num">25+</span>
+            <span class="stat-label">Consulting Engagements</span>
+          </div>
+          <div>
+            <span class="stat-num">3</span>
+            <span class="stat-label">Launches in Market</span>
+          </div>
+        </div>
+        <div class="bio-tags">
+          <span class="bio-tag">Big 4 Consulting</span>
+          <span class="bio-tag">SaaS</span>
+          <span class="bio-tag">Enterprise B2B</span>
+          <span class="bio-tag">AI &amp; ML Tools</span>
+          <span class="bio-tag">AdTech</span>
+          <span class="bio-tag">EdTech</span>
+          <span class="bio-tag">Retail &amp; Pricing</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- ── TRUSTED BY ───────────────────────────────────────── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="label" style="padding-top: 0.3rem;">Trusted by</span>
+      <div>
+        <div class="trusted-grid">
+          <div class="trusted-logo"><img src="logos/target.svg" alt="Target" style="height:30px;"></div>
+          <div class="trusted-logo"><img src="logos/cisco.svg" alt="Cisco"></div>
+          <div class="trusted-logo"><img src="logos/motorola.svg" alt="Motorola"></div>
+          <div class="trusted-logo"><img src="logos/allstate.svg" alt="Allstate" style="height:20px;"></div>
+          <div class="trusted-logo"><img src="logos/gamestop.svg" alt="GameStop" style="filter:none;"></div>
+          <div class="trusted-logo"><img src="logos/takeda.svg" alt="Takeda"></div>
+          <div class="trusted-logo"><img src="logos/jnj.svg" alt="Johnson &amp; Johnson"></div>
+          <div class="trusted-logo"><img src="logos/nordstrom.svg" alt="Nordstrom"></div>
+          <div class="trusted-logo"><img src="logos/walgreens.svg" alt="Walgreens"></div>
+          <div class="trusted-logo"><img src="logos/illumina.svg" alt="Illumina"></div>
+          <div class="trusted-logo"><img src="logos/Wells_Fargo_Bank.svg" alt="Wells Fargo" style="height:40px;"></div>
+          <div class="trusted-logo"><img src="logos/State-street-logo-final.svg" alt="State Street"></div>
+          <div class="trusted-logo"><img src="logos/stanley-black-decker.svg" alt="Stanley Black &amp; Decker" style="height:32px;"></div>
+        </div>
+        <span class="label" style="display:block; margin-top: 2rem; margin-bottom:1rem;">Startups</span>
+        <div class="trusted-grid">
+          <div class="trusted-logo trusted-logo--startup"><a href="https://baseplus.app" target="_blank"><img src="logos/baseplus.png" alt="Baseplus"></a></div>
+          <div class="trusted-logo trusted-logo--startup"><a href="https://northbeam.io" target="_blank"><img src="logos/northbeam.svg" alt="Northbeam"></a></div>
+          <div class="trusted-logo trusted-logo--startup"><a href="https://ethossystems.com" target="_blank"><img src="logos/ethos.svg" alt="Ethos Systems" style="height:16px;"></a></div>
+          <div class="trusted-logo trusted-logo--startup"><a href="https://petrichortech.com" target="_blank"><img src="logos/petrichor.png" alt="Petrichor"></a></div>
+          <div class="trusted-logo trusted-logo--startup"><a href="https://danti.ai" target="_blank"><img src="logos/danti.svg" alt="Danti"></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ───────────────────────────────────────── -->
+  <section class="section experience-section">
+    <div class="section-header">
+      <span class="label" style="padding-top: 0.3rem;">Experience</span>
+      <h2 class="section-title" style="white-space: nowrap;">13 years. <strong>Always building.</strong></h2>
+    </div>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <span class="timeline-company">Purpose Built</span>
+          <span class="timeline-dates">Oct 2022 &ndash; Present</span>
+        </div>
+        <div class="timeline-marker"><span class="timeline-dot current"></span></div>
+        <div class="timeline-right">
+          <span class="timeline-title">Owner &amp; Principal Consultant</span>
+          <p class="timeline-desc">Portfolio work includes: agricultural supply chain, employee compensation, ecommerce and ad tech, geospatial search, and AI interfaces.</p>
+          <ul class="timeline-bullets">
+            <li><a href="https://baseplus.app" target="_blank">baseplus.app</a> — PM Lead</li>
+            <li><a href="https://ethossystems.com" target="_blank">ethossystems.com</a> — Design Lead, DoD task-tracking feature launch</li>
+            <li><a href="https://danti.ai" target="_blank">danti.ai</a> — Design support, mobile experience</li>
+            <li><a href="https://petrichortech.com" target="_blank">petrichor tech</a> — Design lead</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <span class="timeline-company-wrap"><span class="timeline-arrow">→</span><a href="https://northbeam.io" target="_blank" class="timeline-company timeline-link">Northbeam</a></span>
+          <span class="timeline-dates">Feb 2023 &ndash; Jul 2024</span>
+        </div>
+        <div class="timeline-marker"><span class="timeline-dot"></span></div>
+        <div class="timeline-right">
+          <span class="timeline-title">Lead Product Designer</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <span class="timeline-company-wrap"><span class="timeline-arrow">→</span><a href="https://www.bcg.com/x/" target="_blank" class="timeline-company timeline-link">BCG X</a></span>
+          <span class="timeline-dates">Mar 2020 &ndash; Oct 2022</span>
+        </div>
+        <div class="timeline-marker"><span class="timeline-dot"></span></div>
+        <div class="timeline-right">
+          <span class="timeline-title">Lead Product Designer</span>
+          <p class="timeline-desc">Retail AI and Machine Learning engagements</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <span class="timeline-company">BCG Digital Ventures</span>
+          <span class="timeline-dates">Jan 2016 &ndash; Mar 2020</span>
+        </div>
+        <div class="timeline-marker"><span class="timeline-dot"></span></div>
+        <div class="timeline-right">
+          <span class="timeline-title">Sr. Product Designer</span>
+          <p class="timeline-desc">BCG Digital Ventures was BCG's corporate investment and incubation firm.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <span class="timeline-company">Share Interactive</span>
+          <span class="timeline-dates">Sep 2015 &ndash; Jan 2016</span>
+        </div>
+        <div class="timeline-marker"><span class="timeline-dot"></span></div>
+        <div class="timeline-right">
+          <span class="timeline-title">Product Designer</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── THESE DAYS ───────────────────────────────────────── -->
+  <section class="section">
+    <div class="section-header">
+      <span class="label" style="padding-top: 0.3rem;">These Days</span>
+      <div>
+        <h2 class="section-title"><strong>Lately.</strong></h2>
+        <p class="timeline-desc" style="max-width: 60ch; font-size: 1rem; line-height: 1.8; margin-top: 1.5rem;">Lately, I've been helping startups navigate the complexity that comes with shipping for DoD customers. I love balancing highly specific DoD requirements with commercial viability — finding use cases beyond the original scope of the product.</p>
+        <p class="timeline-desc" style="max-width: 60ch; font-size: 1rem; line-height: 1.8; margin-top: 1rem;">Also having fun using AI to rapidly prototype. Getting concepts off the whiteboard and in front of real customers fast, tightening the feedback loop between idea and validation and saving serious design and development hours (and dollars) along the way.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DEGREES & CERTIFICATIONS ────────────────────────── -->
+  <section class="section">
+    <div class="section-header" style="margin-bottom: 2rem;">
+      <span class="label" style="padding-top: 0.3rem;">Degrees &amp; Certifications</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule);">
+
+      <div style="padding: 2rem; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; gap: 0.75rem;">
+        <span class="label">Seattle Pacific University</span>
+        <span style="font-size: 1rem; font-weight: 500; line-height: 1.3;">Bachelors, Visual Communication Design</span>
+        <img src="logos/spu.png" alt="Seattle Pacific University" style="width: 28px; height: 28px; object-fit: contain; margin-top: 0.5rem;">
+      </div>
+
+      <div style="padding: 2rem; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; gap: 0.75rem;">
+        <span class="label">Cooper Professional</span>
+        <span style="font-size: 1rem; font-weight: 500; line-height: 1.3;">Design Leadership Training</span>
+        <img src="logos/cooper.png" alt="Cooper Professional" style="width: 28px; height: 28px; object-fit: cover; border-radius: 50%; margin-top: 0.5rem;">
+      </div>
+
+      <div style="padding: 2rem; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; gap: 0.75rem;">
+        <span class="label">University of Washington</span>
+        <span style="font-size: 1rem; font-weight: 500; line-height: 1.3;">PCE Cert, Software Product Management</span>
+        <img src="logos/uw.jpg" alt="University of Washington" style="width: 28px; height: 28px; object-fit: cover; margin-top: 0.5rem;">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer>
+    <span class="footer-brand">MORRIE NIMMER</span>
+    <div class="footer-meta">
+      <span>&copy; 2026 Purpose Built</span>
+      <span>Eugene, OR / Remote</span>
+    </div>
+  </footer>
+
+
+</body>
+</html>
+
+  <!-- ── CONTACT MODAL ────────────────────────────────────── -->
+  <div id="contact-modal" style="display:none; position:fixed; inset:0; background:rgba(18,15,9,0.75); z-index:1000; align-items:center; justify-content:center; padding:1.5rem;">
+    <div style="position:relative; width:100%; max-width:780px;"><button onclick="closeContactModal()" style="position:absolute; top:-2.5rem; right:0; background:none; border:none; color:#fff; font-family:var(--mono); font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer;">✕ Close</button><div class="contact-modal-grid" style="background:var(--paper); display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--rule);">
+      <div style="padding:2.5rem 2rem; border-right:1px solid var(--rule); display:flex; flex-direction:column; gap:1rem;">
+        <span style="font-family:var(--mono); font-size:0.6875rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent);">01</span>
+        <h2 style="font-size:1.375rem; font-weight:300; line-height:1.2;">Find me on <strong>LinkedIn.</strong></h2>
+        <div>
+          <p style="font-size:0.9rem; font-weight:300; color:var(--ink-2); line-height:1.7;">Connect or send a message directly — it's the fastest way to reach me.</p>
+          <a href="https://www.linkedin.com/in/morrienimmer/" target="_blank" class="btn-primary" style="display:inline-block; margin-top:1.25rem;">View Profile &nbsp;↗</a>
+        </div>
+      </div>
+      <div style="padding:2.5rem 2rem; display:flex; flex-direction:column; gap:1rem;">
+        <span style="font-family:var(--mono); font-size:0.6875rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent);">02</span>
+        <h2 style="font-size:1.375rem; font-weight:300; line-height:1.2;">Send a <strong>message.</strong></h2>
+        <form style="display:flex; flex-direction:column; gap:1rem;" action="https://formspree.io/f/mkoqgwvk" method="POST">
+          <div style="display:flex; flex-direction:column; gap:0.3rem;">
+            <label style="font-family:var(--mono); font-size:0.625rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3);" for="m-name">Name</label>
+            <input style="background:var(--paper-hi); border:1px solid var(--rule); padding:0.625rem 0.875rem; font-family:var(--sans); font-size:0.9rem; font-weight:300; color:var(--ink); outline:none; width:100%;" type="text" id="m-name" name="name" required>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:0.3rem;">
+            <label style="font-family:var(--mono); font-size:0.625rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3);" for="m-email">Email</label>
+            <input style="background:var(--paper-hi); border:1px solid var(--rule); padding:0.625rem 0.875rem; font-family:var(--sans); font-size:0.9rem; font-weight:300; color:var(--ink); outline:none; width:100%;" type="email" id="m-email" name="email" required>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:0.3rem;">
+            <label style="font-family:var(--mono); font-size:0.625rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3);" for="m-message">Message</label>
+            <textarea style="background:var(--paper-hi); border:1px solid var(--rule); padding:0.625rem 0.875rem; font-family:var(--sans); font-size:0.9rem; font-weight:300; color:var(--ink); outline:none; width:100%; resize:none; min-height:100px; line-height:1.6;" id="m-message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="align-self:flex-start;">Send Message</button>
+        </form>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <script>
+    function openContactModal() {
+      document.getElementById('contact-modal').style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeContactModal() {
+      document.getElementById('contact-modal').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.getElementById('contact-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeContactModal();
+    });
+  </script>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Purpose Built</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .contact-hero {
+      padding-top: calc(58px + 5rem);
+      padding-bottom: 5rem;
+      padding-left: 3rem;
+      padding-right: 3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .contact-hero-label {
+      font-family: var(--mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-hero-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-hero-title strong { font-weight: 700; }
+
+    .contact-hero-body {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--ink-2);
+      line-height: 1.75;
+      max-width: 52ch;
+    }
+
+    /* ── Two options ─────────────────────────────────────── */
+    .contact-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .contact-option {
+      padding: 4rem 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .contact-option + .contact-option {
+      border-left: 1px solid var(--rule);
+    }
+
+    .contact-option-label {
+      font-family: var(--mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .contact-option-title {
+      font-size: 1.5rem;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    .contact-option-title strong { font-weight: 700; }
+
+    .contact-option-body {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--ink-2);
+      line-height: 1.75;
+      max-width: 40ch;
+      flex: 1;
+    }
+
+    /* ── Form ────────────────────────────────────────────── */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-label {
+      font-family: var(--mono);
+      font-size: 0.625rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .form-input,
+    .form-textarea {
+      background: var(--paper-hi);
+      border: 1px solid var(--rule);
+      padding: 0.75rem 1rem;
+      font-family: var(--sans);
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--ink);
+      outline: none;
+      width: 100%;
+      transition: border-color 0.15s;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--ink);
+    }
+
+    .form-textarea {
+      resize: none;
+      min-height: 120px;
+      line-height: 1.7;
+    }
+
+    .form-submit {
+      align-self: flex-start;
+    }
+
+    @media (max-width: 900px) {
+      .contact-hero {
+        padding: 120px 1.5rem 3rem;
+      }
+
+      .contact-options {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-option {
+        padding: 3rem 1.5rem;
+      }
+
+      .contact-option + .contact-option {
+        border-left: none;
+        border-top: 1px solid var(--rule);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand nav-brand--back"><span class="nav-prompt">❮</span> RETURN HOME</a>
+    <ul class="nav-links">
+      <li><a href="press.html">Press</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <div class="contact-hero">
+    <div class="contact-hero-label">Contact</div>
+    <h1 class="contact-hero-title">Let's <strong>talk.</strong></h1>
+    <p class="contact-hero-body">
+      Whether you're navigating a product inflection point, looking for a clear-eyed outside perspective, or just want to explore what working together might look like — I'd love to hear from you.
+    </p>
+  </div>
+
+  <!-- ── OPTIONS ───────────────────────────────────────────── -->
+  <div class="contact-options">
+
+    <!-- LinkedIn -->
+    <div class="contact-option">
+      <div class="contact-option-label">01</div>
+      <h2 class="contact-option-title">Find me on <strong>LinkedIn.</strong></h2>
+      <div>
+        <p class="contact-option-body">Connect or send a message directly — it's the fastest way to reach me.</p>
+        <a href="https://www.linkedin.com/in/morrienimmer/" target="_blank" class="btn-primary" style="display: inline-block; margin-top: 1.25rem;">View Profile &nbsp;↗</a>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-option">
+      <div class="contact-option-label">02</div>
+      <h2 class="contact-option-title">Send a <strong>message.</strong></h2>
+      <p class="contact-option-body">Prefer email? Fill out the form and I'll get back to you.</p>
+      <form class="contact-form" action="https://formspree.io/f/mkoqgwvk" method="POST">
+        <div class="form-field">
+          <label class="form-label" for="name">Name</label>
+          <input class="form-input" type="text" id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-input" type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="form-field">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary form-submit">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer>
+    <span class="footer-brand">MORRIE NIMMER</span>
+    <div class="footer-meta">
+      <span>&copy; 2026 Purpose Built</span>
+      <span>Eugene, OR / Remote</span>
+    </div>
+  </footer>
+
+</body>
+</html>
