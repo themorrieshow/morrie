@@ -221,7 +221,7 @@
         </div>
       </a>
 
-      <div class="press-card" style="cursor:pointer;" onclick="openVideoModal('https://www.morrie.bio/media/Catalyst_Cloud.mp4')">
+      <div id="catalyst-cloud" class="press-card" style="cursor:pointer;" onclick="openVideoModal('https://www.morrie.bio/media/Catalyst_Cloud.mp4')" data-video="https://www.morrie.bio/media/Catalyst_Cloud.mp4">
         <div class="press-card-pub">BCG</div>
         <div class="press-card-headline">BCG launches Catalyst Cloud, a no-code data platform enabling BCG's advanced-analytics experts</div>
         <div class="press-card-excerpt">Catalyst Cloud offers built-in services to enable data management, modeling, analysis, and visualization — extract insights, predict business outcomes, and accelerate decision-making.</div>
@@ -231,7 +231,7 @@
         </div>
       </div>
 
-      <div class="press-card" style="cursor:pointer;" onclick="openVideoModal('https://www.morrie.bio/media/Retail_AI.mp4')">
+      <div id="retail-ai" class="press-card" style="cursor:pointer;" onclick="openVideoModal('https://www.morrie.bio/media/Retail_AI.mp4')" data-video="https://www.morrie.bio/media/Retail_AI.mp4">
         <div class="press-card-pub">BCG</div>
         <div class="press-card-headline">Advanced Analytics Behind Fashion Company Markdowns</div>
         <div class="press-card-excerpt">How big data, pricing algorithms, and machine learning help retailers make stronger markdown decisions — BCG's experience across 20+ projects found the approach can boost gross margins by 10% to 20%.</div>
@@ -241,7 +241,7 @@
         </div>
       </div>
 
-      <div class="press-card" style="cursor:pointer;" onclick="openVideoModal('https://www.morrie.bio/media/bcg-cisco-fixed.mp4')">
+      <div id="blockchain" class="press-card" style="cursor:pointer;" onclick="openVideoModal('https://www.morrie.bio/media/bcg-cisco-fixed.mp4')" data-video="https://www.morrie.bio/media/bcg-cisco-fixed.mp4">
         <div class="press-card-pub">BCG</div>
         <div class="press-card-headline">Stamping Out Counterfeit Goods with Blockchain and IoT</div>
         <div class="press-card-excerpt">Businesses finally have the authentication and tracking capabilities needed to fight counterfeiting — pairing IoT smart tags with a tamper-proof blockchain chain of custody to protect customers and recover lost revenue.</div>
@@ -306,9 +306,18 @@
       const v = document.getElementById('modal-video');
       v.pause();
       v.src = '';
+      history.replaceState(null, '', window.location.pathname);
     }
     document.getElementById('video-modal').addEventListener('click', function(e) {
       if (e.target === this) closeVideoModal();
+    });
+    // Open modal if URL contains a hash matching a video card
+    window.addEventListener('DOMContentLoaded', function() {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        const card = document.getElementById(hash);
+        if (card && card.dataset.video) openVideoModal(card.dataset.video);
+      }
     });
   </script>
 
