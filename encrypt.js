@@ -28,8 +28,27 @@ async function encryptWithStyle(inputFile, outputFile, pwd) {
   const scriptMatch = encryptedPage.match(/<script type=module>[\s\S]*?<\/script>/);
   const preMatch = encryptedPage.match(/<pre[\s\S]*?<\/pre>/);
 
-  const pagecryptScript = scriptMatch[0];
+  let pagecryptScript = scriptMatch[0];
   const encryptedPayload = preMatch[0];
+
+  // Patch 1: Clear sessionStorage.k (it's salt-specific and won't work cross-page),
+  // then fill s.value from saved password if not already set, then auto-attempt.
+  pagecryptScript = pagecryptScript.replace(
+    'sessionStorage.k||s.value?await x():(u(l),y(p),f.classList.replace("hidden","flex"),s.focus())',
+    'sessionStorage.removeItem("k"),s.value=s.value||sessionStorage.getItem("work_pw")||"",s.value?await x():(u(l),y(p),f.classList.replace("hidden","flex"),s.focus())'
+  );
+
+  // Patch 2: After successful decrypt, save the password to sessionStorage
+  pagecryptScript = pagecryptScript.replace(
+    'document.write(e),document.close()',
+    'sessionStorage.setItem("work_pw",s.value),document.write(e),document.close()'
+  );
+
+  // Patch 3: Clear saved password if it ever fails (so user can re-enter)
+  pagecryptScript = pagecryptScript.replace(
+    'sessionStorage.k?sessionStorage.removeItem("k"):m("Wrong password.")',
+    'sessionStorage.k?sessionStorage.removeItem("k"):(sessionStorage.removeItem("work_pw"),m("Wrong password."))'
+  );
 
   // Relative base path: project pages live one level deeper
   const base = inputFile.startsWith('work/') ? '../' : '';
@@ -95,6 +114,7 @@ async function encryptWithStyle(inputFile, outputFile, pwd) {
     }
 
     .nav-prompt { color: var(--accent); font-size: 0.75rem; }
+    .nav-brand--back { color: var(--accent); }
 
     .nav-links { display: flex; list-style: none; }
 
@@ -264,7 +284,7 @@ async function encryptWithStyle(inputFile, outputFile, pwd) {
 <body>
 
   <nav>
-    <a href="${base}index.html" class="nav-brand"><span class="nav-prompt">❯</span> MORRIE NIMMER</a>
+    <a href="${base}index.html" class="nav-brand nav-brand--back"><span class="nav-prompt">❮</span> RETURN HOME</a>
     <ul class="nav-links">
       <li><a href="${base}work.html" class="active">Work</a></li>
       <li><a href="${base}press.html">Press</a></li>
@@ -282,11 +302,11 @@ async function encryptWithStyle(inputFile, outputFile, pwd) {
   <header class="hidden">
     <div class="gate-box">
       <div class="gate-box-header">
-        <h1 class="gate-title">Selected <strong>Work</strong></h1>
+        <h1 class="gate-title">Need <strong>Access?</strong></h1>
         <span class="label">Protected</span>
       </div>
       <div class="gate-body">
-        <p>This portfolio contains sensitive client work. Enter the password to continue.</p>
+        <p>To protect client work, a password is needed. You'll find it in my resume, or just ask and I'll share it with you.</p>
         <span id="msg"></span>
         <form class="hidden">
           <div class="gate-input-wrap">
