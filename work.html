@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work – Morrie Nimmer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Password gate ─────────────────────────────────────── */
+    #gate {
+      position: fixed;
+      inset: 0;
+      background: var(--paper);
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .gate-box {
+      width: 100%;
+      max-width: 480px;
+      border: 1px solid var(--rule);
+      background: var(--paper-hi);
+    }
+
+    .gate-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .gate-title {
+      font-size: 1.25rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .gate-title strong { font-weight: 700; }
+
+    .gate-body {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .gate-body p {
+      font-size: 0.875rem;
+      color: var(--ink-2);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .gate-input-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .gate-input-wrap label {
+      font-family: var(--mono);
+      font-size: 0.625rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .gate-input-wrap input {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      padding: 0.75rem 1rem;
+      font-family: var(--mono);
+      font-size: 0.875rem;
+      color: var(--ink);
+      outline: none;
+      width: 100%;
+      transition: border-color 0.15s;
+    }
+
+    .gate-input-wrap input:focus { border-color: var(--ink); }
+
+    .gate-error {
+      font-family: var(--mono);
+      font-size: 0.625rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #b94040;
+      display: none;
+    }
+
+    .gate-error.visible { display: block; }
+
+    /* ── Work hero ─────────────────────────────────────────── */
+    .work-hero {
+      padding: 8rem 3rem 5rem;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      align-items: end;
+    }
+
+    .work-hero-title {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+    }
+
+    .work-hero-title strong { font-weight: 700; }
+
+    /* ── Project grid ──────────────────────────────────────── */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-left: 1px solid var(--rule);
+    }
+
+    .project-card {
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      text-decoration: none;
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      transition: background 0.15s;
+    }
+
+    .project-card:hover { background: var(--paper-hi); }
+
+    .project-card-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--rule);
+      filter: saturate(0.85);
+      transition: filter 0.2s;
+    }
+
+    .project-card:hover .project-card-img { filter: saturate(1); }
+
+    .project-card-body {
+      padding: 1.75rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .project-card-num {
+      font-family: var(--mono);
+      font-size: 0.5625rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .project-card-title {
+      font-size: 1.25rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .project-card-title strong { font-weight: 700; }
+
+    .project-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+
+    .bio-tag--accent {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .project-card-arrow {
+      font-family: var(--mono);
+      font-size: 0.6875rem;
+      color: var(--rule);
+      transition: color 0.15s, transform 0.15s;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    .project-card:hover .project-card-arrow {
+      color: var(--accent);
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 900px) {
+      .work-hero {
+        grid-template-columns: 1fr;
+        padding: 6rem 1.5rem 3rem;
+        gap: 1.5rem;
+      }
+      .project-grid { grid-template-columns: repeat(2, 1fr); }
+      .project-card-body { padding: 1.25rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── PASSWORD GATE ─────────────────────────────────────── -->
+  <div id="gate">
+    <div class="gate-box">
+      <div class="gate-header">
+        <h1 class="gate-title">Selected <strong>Work</strong></h1>
+        <span class="label">Protected</span>
+      </div>
+      <div class="gate-body">
+        <p>This portfolio contains sensitive client work. Enter the password to continue.</p>
+        <div class="gate-input-wrap">
+          <label for="gate-pw">Password</label>
+          <input type="password" id="gate-pw" autocomplete="current-password" placeholder="············">
+        </div>
+        <span class="gate-error" id="gate-error">Incorrect password — try again.</span>
+        <button class="btn-primary" id="gate-submit" style="align-self:flex-start;">Enter</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NAV ──────────────────────────────────────────────── -->
+  <nav>
+    <a href="index.html" class="nav-brand"><span class="nav-prompt">❯</span> MORRIE NIMMER</a>
+    <ul class="nav-links">
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── PAGE HERO ─────────────────────────────────────────── -->
+  <section class="work-hero">
+    <span class="label" style="padding-top:0.4rem;">Selected Work</span>
+  </section>
+
+  <!-- ── PROJECT GRID ──────────────────────────────────────── -->
+  <section style="padding: 0 3rem 6rem; border-top: 1px solid var(--rule);">
+    <div class="project-grid">
+
+      <a href="work/northbeam-revamp.html" class="project-card">
+        <img class="project-card-img" src="work/images/thumbnails/northbeam-thumb-800x800.svg" alt="Northbeam Revamp">
+        <div class="project-card-body">
+          <span class="project-card-num">01</span>
+          <h2 class="project-card-title">Northbeam – <strong>Interface Revamp</strong></h2>
+          <div class="project-card-tags">
+            <span class="bio-tag bio-tag--accent">Shipped Product</span>
+          </div>
+          <span class="project-card-arrow">View project →</span>
+        </div>
+      </a>
+
+      <a href="work/gamma.html" class="project-card">
+        <img class="project-card-img" src="work/images/thumbnails/Frame-112-800x800.png" alt="GAMMA Enterprise Pricing Tools">
+        <div class="project-card-body">
+          <span class="project-card-num">02</span>
+          <h2 class="project-card-title">BCGX <strong>Retail AI</strong></h2>
+          <div class="project-card-tags">
+            <span class="bio-tag bio-tag--accent">Shipped Product</span>
+          </div>
+          <span class="project-card-arrow">View project →</span>
+        </div>
+      </a>
+
+      <a href="work/footprint.html" class="project-card">
+        <img class="project-card-img" src="work/images/thumbnails/footprint-thumb-800x800.png" alt="FootPrint">
+        <div class="project-card-body">
+          <span class="project-card-num">03</span>
+          <h2 class="project-card-title">Cisco <strong>Footprint</strong></h2>
+          <div class="project-card-tags">
+            <span class="bio-tag bio-tag--accent">Shipped Product</span>
+          </div>
+          <span class="project-card-arrow">View project →</span>
+        </div>
+      </a>
+
+      <a href="work/avail.html" class="project-card">
+        <img class="project-card-img" src="work/images/thumbnails/avail-thumb-800x800.png" alt="Avail">
+        <div class="project-card-body">
+          <span class="project-card-num">04</span>
+          <h2 class="project-card-title">Allstate – <strong>Avail Carsharing</strong></h2>
+          <div class="project-card-tags">
+            <span class="bio-tag bio-tag--accent">Shipped Product</span>
+          </div>
+          <span class="project-card-arrow">View project →</span>
+        </div>
+      </a>
+
+      <a href="work/binge.html" class="project-card">
+        <img class="project-card-img" src="work/images/thumbnails/binge-thumb-800x800.png" alt="Binge">
+        <div class="project-card-body">
+          <span class="project-card-num">05</span>
+          <h2 class="project-card-title">Target – <strong>Binge</strong></h2>
+          <div class="project-card-tags">
+            <span class="bio-tag">Product Vision</span>
+          </div>
+          <span class="project-card-arrow">View project →</span>
+        </div>
+      </a>
+
+      <a href="work/connected-nursery.html" class="project-card">
+        <img class="project-card-img" src="work/images/thumbnails/roo-thumb-1-800x800.png" alt="Connected Nursery">
+        <div class="project-card-body">
+          <span class="project-card-num">06</span>
+          <h2 class="project-card-title">Motorola – <strong>Connected Nursery</strong></h2>
+          <div class="project-card-tags">
+            <span class="bio-tag">Strategy</span>
+          </div>
+          <span class="project-card-arrow">View project →</span>
+        </div>
+      </a>
+
+      <a href="work/custodial-banking.html" class="project-card">
+        <img class="project-card-img" src="work/images/thumbnails/thinkpad-2up-outward-1-800x800.png" alt="Custodial Banking">
+        <div class="project-card-body">
+          <span class="project-card-num">07</span>
+          <h2 class="project-card-title">State Street Bank – <strong>Design System</strong></h2>
+          <div class="project-card-tags">
+            <span class="bio-tag">Strategy</span>
+          </div>
+          <span class="project-card-arrow">View project →</span>
+        </div>
+      </a>
+
+      <a href="work/oshi-health.html" class="project-card">
+        <img class="project-card-img" src="work/images/thumbnails/oshi-thumb-800x800.png" alt="Oshi Health">
+        <div class="project-card-body">
+          <span class="project-card-num">08</span>
+          <h2 class="project-card-title">Takeda – <strong>Oshi Health</strong></h2>
+          <div class="project-card-tags">
+            <span class="bio-tag">Product Vision</span>
+          </div>
+          <span class="project-card-arrow">View project →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer>
+    <span class="footer-brand">MORRIE NIMMER</span>
+    <div class="footer-meta">
+      <span>&copy; 2026 Purpose Built</span>
+      <span>Eugene, OR / Remote</span>
+    </div>
+  </footer>
+
+  <script>
+    const CORRECT = 'morrie2022';
+    const KEY = 'work_auth';
+
+    const gate = document.getElementById('gate');
+    const input = document.getElementById('gate-pw');
+    const btn = document.getElementById('gate-submit');
+    const err = document.getElementById('gate-error');
+
+    function unlock() {
+      gate.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    // Check if already authenticated
+    if (sessionStorage.getItem(KEY) === 'true') {
+      unlock();
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+
+    function attempt() {
+      if (input.value === CORRECT) {
+        sessionStorage.setItem(KEY, 'true');
+        err.classList.remove('visible');
+        unlock();
+      } else {
+        err.classList.add('visible');
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    btn.addEventListener('click', attempt);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
+  </script>
+
+</body>
+</html>

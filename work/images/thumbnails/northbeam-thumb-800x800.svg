@@ -1,0 +1,34 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#021230"/>
+      <stop offset="100%" stop-color="#0b1e50"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7081FF" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#7081FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="url(#bg)"/>
+
+  <!-- Subtle glow behind mark -->
+  <ellipse cx="400" cy="400" rx="260" ry="200" fill="url(#glow)"/>
+
+  <!-- Subtle grid -->
+  <g stroke="#7081FF" stroke-opacity="0.06" stroke-width="1">
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="0" y1="600" x2="800" y2="600"/>
+    <line x1="200" y1="0" x2="200" y2="800"/>
+    <line x1="400" y1="0" x2="400" y2="800"/>
+    <line x1="600" y1="0" x2="600" y2="800"/>
+  </g>
+
+  <!-- Mark centered, scaled to ~320px wide -->
+  <!-- Mark original bounds: 0 0 74.7 46.2, scale=4.284 → 320×198, center at (240,301) -->
+  <g transform="translate(240, 301) scale(4.284)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M74.666 0.822266H69.5225L56.3267 27.4383L51.5623 22.5926L62.3384 0.853385L62.2724 0.822266H57.1289L48.0848 19.0627L44.1623 15.075L51.2141 0.853385L51.1437 0.822266H46.0002L36.533 19.9208L30.2877 13.5724H27.4053L24.6286 19.1295L19.159 13.5724H16.2766L0 46.1767H5.23601L18.5067 19.6051L22.4117 23.5751L11.1243 46.1767H16.3603L25.8848 27.1049L30.6316 31.9329L23.518 46.1767H28.754L37.8508 27.9585L43.5276 33.7244H46.0442L49.3542 27.0515L55.9256 33.7289H58.4423L74.7365 0.857831L74.666 0.822266ZM31.9655 27.4368L28.1045 23.5114L30.0615 19.5947L33.9136 23.5069L31.9655 27.4368ZM40.0742 23.5114L43.9351 27.4368L45.8832 23.5069L42.0311 19.5947L40.0742 23.5114Z" fill="#7081FF"/>
+  </g>
+</svg>
