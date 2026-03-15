@@ -31,6 +31,9 @@ async function encryptWithStyle(inputFile, outputFile, pwd) {
   const pagecryptScript = scriptMatch[0];
   const encryptedPayload = preMatch[0];
 
+  // Relative base path: project pages live one level deeper
+  const base = inputFile.startsWith('work/') ? '../' : '';
+
   const customPage = `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,6 +69,52 @@ async function encryptWithStyle(inputFile, outputFile, pwd) {
 
     .hidden { display: none !important; }
 
+    /* ── Nav ────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 58px;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      z-index: 400;
+    }
+
+    .nav-brand {
+      font-family: var(--mono);
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-prompt { color: var(--accent); font-size: 0.75rem; }
+
+    .nav-links { display: flex; list-style: none; }
+
+    .nav-links li a {
+      font-family: var(--mono);
+      font-size: 0.6875rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--ink-2);
+      padding: 0 1.375rem;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      border-left: 1px solid var(--rule);
+    }
+
+    .nav-links li:last-child a { border-right: 1px solid var(--rule); }
+    .nav-links li a.active { color: var(--accent); }
+
     /* ── Loading state ──────────────────────────────────────── */
     #load {
       position: fixed;
@@ -94,15 +143,17 @@ async function encryptWithStyle(inputFile, outputFile, pwd) {
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ── Gate overlay ───────────────────────────────────────── */
+    /* ── Modal overlay ──────────────────────────────────────── */
     header.flex {
       position: fixed;
       inset: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--paper);
-      z-index: 500;
+      background: rgba(26, 23, 20, 0.55);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      z-index: 300;
       padding: 2rem;
     }
 
@@ -114,7 +165,7 @@ async function encryptWithStyle(inputFile, outputFile, pwd) {
       background: var(--paper-hi);
     }
 
-    .gate-header {
+    .gate-box-header {
       padding: 1.5rem 2rem;
       border-bottom: 1px solid var(--rule);
       display: flex;
@@ -212,6 +263,17 @@ async function encryptWithStyle(inputFile, outputFile, pwd) {
 </head>
 <body>
 
+  <nav>
+    <a href="${base}index.html" class="nav-brand"><span class="nav-prompt">❯</span> MORRIE NIMMER</a>
+    <ul class="nav-links">
+      <li><a href="${base}work.html" class="active">Work</a></li>
+      <li><a href="${base}press.html">Press</a></li>
+      <li><a href="${base}process.html">Process</a></li>
+      <li><a href="${base}about.html">About</a></li>
+      <li><a href="${base}contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
   <div id="load">
     <div class="spinner"></div>
     <span>Loading</span>
@@ -219,7 +281,7 @@ async function encryptWithStyle(inputFile, outputFile, pwd) {
 
   <header class="hidden">
     <div class="gate-box">
-      <div class="gate-header">
+      <div class="gate-box-header">
         <h1 class="gate-title">Selected <strong>Work</strong></h1>
         <span class="label">Protected</span>
       </div>
