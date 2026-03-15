@@ -1,0 +1,10 @@
+{
+  "name": "morrie-bio",
+  "type": "module",
+  "scripts": {
+    "encrypt": "node encrypt.js"
+  },
+  "dependencies": {
+    "pagecrypt": "^7.1.0"
+  }
+}
