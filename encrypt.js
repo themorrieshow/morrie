@@ -1,4 +1,4 @@
-import { encryptFile } from 'pagecrypt';
+import { encrypt } from 'pagecrypt';
 
 const password = process.env.WORK_PASSWORD;
 
@@ -20,7 +20,7 @@ const files = [
 ];
 
 for (const file of files) {
-  await encryptFile(file, file, password);
+  await encrypt(file, file, password);
   console.log(`Encrypted: ${file}`);
 }
 
