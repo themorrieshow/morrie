@@ -9,94 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* ── Password gate ─────────────────────────────────────── */
-    #gate {
-      position: fixed;
-      inset: 0;
-      background: var(--paper);
-      z-index: 500;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-
-    .gate-box {
-      width: 100%;
-      max-width: 480px;
-      border: 1px solid var(--rule);
-      background: var(--paper-hi);
-    }
-
-    .gate-header {
-      padding: 1.5rem 2rem;
-      border-bottom: 1px solid var(--rule);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .gate-title {
-      font-size: 1.25rem;
-      font-weight: 300;
-      letter-spacing: -0.02em;
-    }
-
-    .gate-title strong { font-weight: 700; }
-
-    .gate-body {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .gate-body p {
-      font-size: 0.875rem;
-      color: var(--ink-2);
-      font-weight: 300;
-      line-height: 1.6;
-    }
-
-    .gate-input-wrap {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .gate-input-wrap label {
-      font-family: var(--mono);
-      font-size: 0.625rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-    }
-
-    .gate-input-wrap input {
-      background: var(--paper);
-      border: 1px solid var(--rule);
-      padding: 0.75rem 1rem;
-      font-family: var(--mono);
-      font-size: 0.875rem;
-      color: var(--ink);
-      outline: none;
-      width: 100%;
-      transition: border-color 0.15s;
-    }
-
-    .gate-input-wrap input:focus { border-color: var(--ink); }
-
-    .gate-error {
-      font-family: var(--mono);
-      font-size: 0.625rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #b94040;
-      display: none;
-    }
-
-    .gate-error.visible { display: block; }
-
     /* ── Work hero ─────────────────────────────────────────── */
     .work-hero {
       padding: 8rem 3rem 5rem;
@@ -211,25 +123,6 @@
   </style>
 </head>
 <body>
-
-  <!-- ── PASSWORD GATE ─────────────────────────────────────── -->
-  <div id="gate">
-    <div class="gate-box">
-      <div class="gate-header">
-        <h1 class="gate-title">Selected <strong>Work</strong></h1>
-        <span class="label">Protected</span>
-      </div>
-      <div class="gate-body">
-        <p>This portfolio contains sensitive client work. Enter the password to continue.</p>
-        <div class="gate-input-wrap">
-          <label for="gate-pw">Password</label>
-          <input type="password" id="gate-pw" autocomplete="current-password" placeholder="············">
-        </div>
-        <span class="gate-error" id="gate-error">Incorrect password — try again.</span>
-        <button class="btn-primary" id="gate-submit" style="align-self:flex-start;">Enter</button>
-      </div>
-    </div>
-  </div>
 
   <!-- ── NAV ──────────────────────────────────────────────── -->
   <nav>
@@ -360,42 +253,6 @@
     </div>
   </footer>
 
-  <script>
-    const CORRECT = 'morrie2022';
-    const KEY = 'work_auth';
-
-    const gate = document.getElementById('gate');
-    const input = document.getElementById('gate-pw');
-    const btn = document.getElementById('gate-submit');
-    const err = document.getElementById('gate-error');
-
-    function unlock() {
-      gate.style.display = 'none';
-      document.body.style.overflow = '';
-    }
-
-    // Check if already authenticated
-    if (sessionStorage.getItem(KEY) === 'true') {
-      unlock();
-    } else {
-      document.body.style.overflow = 'hidden';
-    }
-
-    function attempt() {
-      if (input.value === CORRECT) {
-        sessionStorage.setItem(KEY, 'true');
-        err.classList.remove('visible');
-        unlock();
-      } else {
-        err.classList.add('visible');
-        input.value = '';
-        input.focus();
-      }
-    }
-
-    btn.addEventListener('click', attempt);
-    input.addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
-  </script>
 
 </body>
 </html>
