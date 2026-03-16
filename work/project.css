@@ -117,6 +117,13 @@
   max-width: 60ch;
 }
 
+ul.sub-text {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 .sub-list {
   list-style: none;
   display: flex;

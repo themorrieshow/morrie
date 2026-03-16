@@ -11,6 +11,7 @@ if (!password) {
 const files = [
   'work.html',
   'work/northbeam-revamp.html',
+  'work/northbeam-mmm.html',
   'work/gamma.html',
   'work/footprint.html',
   'work/avail.html',
