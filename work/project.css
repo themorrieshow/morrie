@@ -150,6 +150,8 @@ ul.sub-text {
   gap: 0.25rem;
 }
 
+ul.sub-text strong { font-weight: 700; }
+
 .sub-list {
   list-style: none;
   display: flex;
