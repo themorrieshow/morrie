@@ -93,6 +93,78 @@
       </div>
 
       <div class="content-section">
+        <div class="sub-label">Product States</div>
+        <p class="sub-text">MMM+ is a stateful product — what the user sees depends entirely on where they are in their modelling cycle. Designing across all seven states was critical to making the experience feel coherent rather than like a collection of disconnected screens.</p>
+
+        <div class="state-list">
+
+          <div class="state-item">
+            <div class="state-meta">
+              <span class="state-num">01</span>
+              <span class="state-title">Feature Not Purchased</span>
+            </div>
+            <p class="state-desc">The user's account does not include MMM+. The surface communicates the value of the product and provides a clear path to upgrade.</p>
+            <div class="state-img-wrap"><!-- screen 1 --></div>
+          </div>
+
+          <div class="state-item">
+            <div class="state-meta">
+              <span class="state-num">02</span>
+              <span class="state-title">Purchased — Awaiting First Cycle</span>
+            </div>
+            <p class="state-desc">MMM+ has been enabled but no modelling cycle has started yet. The experience orients the user, sets expectations for what's coming, and prompts them to begin setup.</p>
+            <div class="state-img-wrap"><!-- screen 2 --></div>
+          </div>
+
+          <div class="state-item">
+            <div class="state-meta">
+              <span class="state-num">03</span>
+              <span class="state-title">Add Data for Upcoming Cycle</span>
+            </div>
+            <p class="state-desc">The user provides the inputs the model needs to run — spend data, channel selection, and time window. Designed to feel guided rather than form-like.</p>
+            <div class="state-img-wrap"><!-- screen 3 --></div>
+          </div>
+
+          <div class="state-item">
+            <div class="state-meta">
+              <span class="state-num">04</span>
+              <span class="state-title">Import Past Settings or Create New</span>
+            </div>
+            <p class="state-desc">Returning users can carry forward settings from a previous cycle, reducing friction for repeat use. New users start from scratch with guided defaults.</p>
+            <div class="state-img-wrap"><!-- screen 4 --></div>
+          </div>
+
+          <div class="state-item">
+            <div class="state-meta">
+              <span class="state-num">05</span>
+              <span class="state-title">Generating Media Mixes</span>
+            </div>
+            <p class="state-desc">The model is running. The user is in a waiting state — the design maintains engagement, communicates progress, and sets expectations for when results will be ready.</p>
+            <div class="state-img-wrap"><!-- screen 5 --></div>
+          </div>
+
+          <div class="state-item">
+            <div class="state-meta">
+              <span class="state-num">06</span>
+              <span class="state-title">Mixes Ready — Adopt a Mix</span>
+            </div>
+            <p class="state-desc">The model has returned media mix scenarios for the user to review. The user compares options and selects a mix to run for the upcoming cycle.</p>
+            <div class="state-img-wrap"><!-- screen 6 --></div>
+          </div>
+
+          <div class="state-item">
+            <div class="state-meta">
+              <span class="state-num">07</span>
+              <span class="state-title">Cycle Running — Track Performance</span>
+            </div>
+            <p class="state-desc">The cycle is live. The user monitors spend pacing and performance against the adopted mix, with visibility into how actuals are tracking against the model's projections.</p>
+            <div class="state-img-wrap"><!-- screen 7 --></div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="content-section">
         <div class="sub-label">Key Design Challenge</div>
         <p class="sub-text">MMM+ has an inherently time-based user experience — and that sequencing created a significant design problem. Before a user can see any media mix scenarios, they first have to configure a model: defining the time window, selecting channels, and setting budget constraints. Only once those settings are locked can the model run, and only after the model runs can results be surfaced.</p>
         <p class="sub-text" style="margin-top: 1rem;">For a technical user, this pipeline is intuitive. For a brand owner or media buyer who just wants to know where to put their money next quarter, it's a wall. A large part of the design work was breaking this sequence into stages that felt like natural progress rather than prerequisite gates — communicating what was happening, why each step mattered, and what the user would get on the other side. The goal was to make the model feel like a tool working for the user, not a process the user had to feed.</p>
