@@ -394,7 +394,7 @@ ul.sub-text {
 /* ── State list ─────────────────────────────────────────── */
 .state-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 3rem 2rem;
   margin-top: 2rem;
 }
