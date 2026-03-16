@@ -1,41 +1,10 @@
 <svg width="1400" height="700" viewBox="0 0 1400 700" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#021230"/>
-      <stop offset="100%" stop-color="#0b1e50"/>
-    </linearGradient>
-    <linearGradient id="chart1" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#7081FF" stop-opacity="0"/>
-      <stop offset="25%" stop-color="#7081FF" stop-opacity="0.35"/>
-      <stop offset="75%" stop-color="#7081FF" stop-opacity="0.35"/>
-      <stop offset="100%" stop-color="#7081FF" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="chart2" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#D8DCFF" stop-opacity="0"/>
-      <stop offset="25%" stop-color="#D8DCFF" stop-opacity="0.18"/>
-      <stop offset="75%" stop-color="#D8DCFF" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#D8DCFF" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
 
-  <!-- Background -->
-  <rect width="1400" height="700" fill="url(#bg)"/>
+  <!-- Background image -->
+  <image href="northbeam-bg.avif" x="0" y="0" width="1400" height="700" preserveAspectRatio="xMidYMid slice"/>
 
-  <!-- Subtle horizontal grid lines -->
-  <g stroke="#7081FF" stroke-opacity="0.07" stroke-width="1">
-    <line x1="0" y1="140" x2="1400" y2="140"/>
-    <line x1="0" y1="280" x2="1400" y2="280"/>
-    <line x1="0" y1="420" x2="1400" y2="420"/>
-    <line x1="0" y1="560" x2="1400" y2="560"/>
-  </g>
-
-  <!-- Decorative chart lines -->
-  <path d="M0,560 C120,530 220,490 380,430 C540,370 640,390 760,330 C880,270 980,230 1120,200 C1260,170 1340,195 1400,185"
-        fill="none" stroke="url(#chart1)" stroke-width="2.5"/>
-  <path d="M0,610 C160,585 280,550 440,490 C600,430 700,450 840,400 C980,350 1080,320 1230,300 C1380,280 1400,285 1400,285"
-        fill="none" stroke="url(#chart2)" stroke-width="1.5"/>
-  <path d="M0,640 C200,625 340,600 500,560 C660,520 760,540 900,500 C1040,460 1140,440 1280,425 C1380,415 1400,418 1400,418"
-        fill="none" stroke="#7081FF" stroke-opacity="0.1" stroke-width="1"/>
+  <!-- Dark overlay -->
+  <rect width="1400" height="700" fill="#021230" fill-opacity="0.55"/>
 
   <!-- Northbeam logo centered — mark in #7081FF, text in white -->
   <g transform="translate(560, 324) scale(1.12)">
