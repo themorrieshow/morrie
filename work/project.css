@@ -79,7 +79,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(2, 18, 48, 0.55);
+  background: rgba(2, 18, 48, 0.75);
 }
 
 .project-hero-banner img {
