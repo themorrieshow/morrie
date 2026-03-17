@@ -230,9 +230,10 @@ ul.sub-text strong { font-weight: 700; }
 .slideshow-btn--prev { left: 1rem; }
 .slideshow-btn--next { right: 1rem; }
 .slideshow-btn--fs {
-  top: auto;
-  bottom: 0.5rem;
-  left: 1rem;
+  top: 0.5rem;
+  right: 0.5rem;
+  bottom: auto;
+  left: auto;
   transform: none;
   width: 2rem;
   height: 2rem;
