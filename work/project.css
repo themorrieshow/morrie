@@ -82,6 +82,10 @@
   background: rgba(2, 18, 48, 0.75);
 }
 
+.project-hero-banner--no-overlay::after {
+  display: none;
+}
+
 .project-hero-banner img {
   position: relative;
   z-index: 1;
