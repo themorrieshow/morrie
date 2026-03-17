@@ -9,6 +9,12 @@
   justify-content: space-between;
 }
 
+.project-back-bar--bottom {
+  margin-top: 0;
+  border-bottom: none;
+  border-top: 1px solid var(--rule);
+}
+
 .back-link {
   font-family: var(--mono);
   font-size: 0.875rem;
